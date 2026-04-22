@@ -1,7 +1,7 @@
 {
-  "name": "react-example",
+  "name": "neon-void-arcade",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
@@ -10,14 +10,10 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "vite": "^6.2.0",
-    "express": "^4.21.2",
-    "dotenv": "^17.2.3"
+    "vite": "^6.2.0"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.14",
-    "autoprefixer": "^10.4.21",
-    "tailwindcss": "^4.1.14",
-    "vite": "^6.2.0"
+    "tailwindcss": "^4.1.14"
   }
 }

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Pulse Defender</title>
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Retro Arcade Frame -->
+        <div style="position: absolute; inset: 0; border: 24px solid #1a1a2e; pointer-events: none; z-index: 100;"></div>
+        <div style="position: absolute; inset: 0; border: 2px solid #ff00ff; opacity: 0.2; pointer-events: none; z-index: 101;"></div>
+
+        <!-- Decoration lines -->
+        <div class="dec-line-v" style="left: 25%;"></div>
+        <div class="dec-line-v" style="right: 25%;"></div>
+        <div class="dec-line-h" style="top: 50%;"></div>
+
+        <canvas id="game-canvas"></canvas>
+        <div class="scanlines"></div>
+        <div id="flash-effect"></div>
+        
+        <div id="ui-layer">
+            <!-- Top HUD -->
+            <div class="top-bar">
+                <div class="label-box">
+                    <span class="label-text" style="color: var(--neon-cyan)">HI-SCORE</span>
+                    <span class="value-text">00042850</span>
+                </div>
+                <div class="title-container">
+                    <h1>NEON VOID</h1>
+                </div>
+                <div class="label-box" style="align-items: flex-end;">
+                    <span class="label-text" style="color: var(--neon-magenta)">WAVE 01</span>
+                    <span id="score-val" class="value-text">0</span>
+                </div>
+            </div>
+
+            <!-- Bottom HUD -->
+            <div class="bottom-bar">
+                <div style="display: flex; gap: 40px;">
+                    <div class="label-box">
+                        <span class="label-text" style="color: var(--neon-cyan)">LIVES</span>
+                        <div id="lives-val" style="margin-top: 10px; font-size: 20px; color: #fff;">❤❤❤</div>
+                    </div>
+                </div>
+
+                <div class="controls-hint">
+                    <div><span class="key-cap">ARROWS</span>MOVE</div>
+                    <div><span class="key-cap">SPACE</span>FIRE</div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="copyright">
+                &copy; 1984 VOIDSYSTEMS HEAVY INDUSTRIES
+            </div>
+
+            <!-- Start Screen -->
+            <div id="start-screen" class="screen">
+                <div class="overlay-panel">
+                    <p style="color: var(--neon-magenta); font-size: 10px; letter-spacing: 3px; margin-bottom: 10px;">STAGE 01</p>
+                    <h2 style="font-size: 32px; margin: 0;">READY?</h2>
+                    <button id="start-btn" class="btn">INITIALIZE</button>
+                    <p style="opacity: 0.5; font-size: 8px; margin-top: 20px; letter-spacing: 1px;">PRESS SPACE TO START</p>
+                </div>
+            </div>
+
+            <!-- Game Over Screen -->
+            <div id="game-over-screen" class="screen hidden">
+                <div class="overlay-panel">
+                    <p style="color: var(--neon-magenta); font-size: 10px; letter-spacing: 3px; margin-bottom: 10px;">MISSION FAILED</p>
+                    <h2 style="font-size: 32px; margin: 0;">OFFLINE</h2>
+                    <div style="margin: 20px 0; font-size: 14px;">FINAL SCORE: <span id="final-score">0</span></div>
+                    <button id="restart-btn" class="btn">REBOOT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vanilla JS Entry Point -->
+    <script type="module" src="/src/game.js"></script>
+</body>
+</html>
